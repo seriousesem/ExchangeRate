@@ -1,8 +1,8 @@
-package com.serioussem.exchangerate
-
+package com.serioussem.exchangerate.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

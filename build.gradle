@@ -8,3 +8,14 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    loggingVersion = '3.8.0'
+    retrofitVersion = '2.9.0'
+    roomVersion = '2.4.2'
+    navigationVersion = '2.4.1'
+    coroutinesVersion = '1.5.2'
+    lifecycleVersion = '2.4.1'
+    fragmentKtxVersion = '1.4.1'
+    swipeRefresh = '1.1.0'
+    mockito = '4.0.0'
+}
