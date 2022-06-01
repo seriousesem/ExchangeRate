@@ -1,19 +1,13 @@
 package com.serioussem.exchangerate.presentation.home
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.serioussem.exchangerate.R
+import com.serioussem.exchangerate.databinding.HomeFragmentBinding
+import com.serioussem.exchangerate.presentation.core.BaseFragment
 
-class HomeFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.home_fragment, container, false)
+class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
+
+    override fun init() {
+        TODO("Not yet implemented")
     }
+
 }
