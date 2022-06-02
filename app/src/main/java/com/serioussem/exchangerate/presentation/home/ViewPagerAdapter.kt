@@ -7,8 +7,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.serioussem.exchangerate.presentation.monobank.MonoBankFragment
 import com.serioussem.exchangerate.presentation.privatbank.PrivatBankFragment
 
-class ViewPagerAdapter(fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
+class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int = 2
 

@@ -7,6 +7,9 @@ import com.serioussem.exchangerate.presentation.core.BaseFragment
 class MonoBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::inflate) {
 
     override fun init() {
-        TODO("Not yet implemented")
+        initView()
+    }
+    private fun initView(){
+        binding.textView.text = "MonoBank"
     }
 }
