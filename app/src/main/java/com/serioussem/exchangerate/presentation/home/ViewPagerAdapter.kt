@@ -10,13 +10,15 @@ import com.serioussem.exchangerate.presentation.privatbank.PrivatBankFragment
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    override fun getItemCount(): Int = 2
+    private val fragmentList = listOf<Fragment>(PrivatBankFragment(), MonoBankFragment())
+
+    override fun getItemCount(): Int = fragmentList.size
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PrivatBankFragment()
-            1 -> MonoBankFragment()
-            else -> PrivatBankFragment()
+            0 -> fragmentList[0]
+            1 -> fragmentList[1]
+            else -> fragmentList[0]
         }
     }
 }

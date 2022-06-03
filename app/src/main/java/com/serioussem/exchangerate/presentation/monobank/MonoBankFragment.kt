@@ -10,6 +10,6 @@ class MonoBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::
         initView()
     }
     private fun initView(){
-        binding.textView.text = "MonoBank"
+
     }
 }

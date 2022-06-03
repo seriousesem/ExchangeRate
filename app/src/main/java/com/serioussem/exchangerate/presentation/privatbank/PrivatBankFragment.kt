@@ -9,6 +9,6 @@ class PrivatBankFragment: BaseFragment<BankFragmentBinding>(BankFragmentBinding:
     }
 
     private fun initView(){
-        binding.textView.text = "PrivatBank"
+
     }
 }

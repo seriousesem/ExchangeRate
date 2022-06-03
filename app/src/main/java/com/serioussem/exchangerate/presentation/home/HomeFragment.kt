@@ -1,5 +1,6 @@
 package com.serioussem.exchangerate.presentation.home
 
+import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.serioussem.exchangerate.R
@@ -15,11 +16,15 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
 
     }
 
+    private val homeViewModel: HomeViewModel by viewModels()
+
     override fun init() {
-        initView()
+        initViewPager()
+        initPageTitle()
     }
 
-    private fun initView() {
+
+    private fun initViewPager() {
         binding.viewPager.adapter =
             ViewPagerAdapter(fragmentManager = parentFragmentManager, lifecycle = lifecycle)
         binding.tabLayout.tabIconTint = null
@@ -31,6 +36,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
                         setIcon(R.drawable.privat_logo)
                         icon?.alpha = ALPHA_MAX
                     }
+                    homeViewModel.updatePageTitle(title = getString(R.string.currency_rate_in_privat_bank))
                 }
                 1 -> {
                     with(tab) {
@@ -38,6 +44,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
                         setIcon(R.drawable.mono_logo)
                         icon?.alpha = ALPHA_MIN
                     }
+                    homeViewModel.updatePageTitle(title = getString(R.string.currency_rate_in_mono_bank))
                 }
             }
         }.attach()
@@ -53,5 +60,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+    }
+
+    private fun initPageTitle(){
+        binding.pageTitle.text = homeViewModel.pageTitle.value
     }
 }
