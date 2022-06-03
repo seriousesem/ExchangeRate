@@ -1,5 +1,5 @@
 package com.serioussem.exchangerate.domain.core
 
-interface BaseUseCase<T>{
+interface BaseRepository<T> {
     fun fetchCurrencyRate(): T
 }

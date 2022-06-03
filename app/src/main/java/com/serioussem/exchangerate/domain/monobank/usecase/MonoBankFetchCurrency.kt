@@ -5,7 +5,7 @@ import com.serioussem.exchangerate.domain.monobank.models.MonoBankDomainModel
 
 class MonoBankFetchCurrency: BaseUseCase<MonoBankDomainModel> {
 
-    override fun fetchCurrency(): MonoBankDomainModel {
+    override fun fetchCurrencyRate(): MonoBankDomainModel {
         TODO("Not yet implemented")
     }
 }

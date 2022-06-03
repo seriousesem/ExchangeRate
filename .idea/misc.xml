@@ -3,16 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/iSem/AndroidStudioProjects/ExchangeRate/app/src/main/res/layout/bank_fragment.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/iSem/AndroidStudioProjects/ExchangeRate/app/src/main/res/layout/home_fragment.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/iSem/AndroidStudioProjects/ExchangeRate/app/src/main/res/layout/home_screen.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/drawable/separator.xml" value="0.254" />
+        <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/drawable/us.xml" value="0.254" />
         <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/bank_fragment.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/currency_rate_view_holder_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/currency_view_holder_item.xml" value="0.365625" />
         <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/home_fragment.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/home_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/splash_fragment.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/semen001/StudioProjects/ExchangeRate/app/src/main/res/layout/splash_screen.xml" value="0.36666666666666664" />
       </map>
     </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" location="$PROJECT_DIR$" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
