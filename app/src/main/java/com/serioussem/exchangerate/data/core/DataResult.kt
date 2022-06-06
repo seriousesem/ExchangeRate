@@ -1,6 +1,6 @@
-package com.serioussem.exchangerate.domain.core
+package com.serioussem.exchangerate.data.core
 
-data class CurrencyRateDomainModel(
+data class DataResult(
     val country: String,
     val currencyShortName: String,
     val currencyFullName: String,

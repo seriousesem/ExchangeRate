@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.utils
+package com.serioussem.exchangerate.presentation.core
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default
@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class Dispatchers {
+class AppDispatchers {
     fun launchUI(
         scope: CoroutineScope,
         block: suspend CoroutineScope.() -> Unit
