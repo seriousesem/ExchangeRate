@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.data.core
+package com.serioussem.exchangerate.data.models
 
 sealed class DataResult<T>(
     val data: T? = null,

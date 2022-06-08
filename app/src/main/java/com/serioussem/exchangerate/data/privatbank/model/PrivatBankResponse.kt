@@ -1,8 +1,8 @@
-package com.serioussem.exchangerate.data.privatbank.datasource.model
+package com.serioussem.exchangerate.data.privatbank.model
 
 import com.google.gson.annotations.SerializedName
 
-data class PrivatBankModelList(
+data class PrivatBankResponse(
 
 	@field:SerializedName("PrivatBankResponse")
 	val privatBankResponse: List<PrivatBankModel>

@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.data.core
+package com.serioussem.exchangerate.data.models
 
 data class DataModel(
     val currencyShortName: String,

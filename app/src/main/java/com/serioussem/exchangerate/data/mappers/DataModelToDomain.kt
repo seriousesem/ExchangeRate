@@ -1,7 +1,7 @@
 package com.serioussem.exchangerate.data.mappers
 
-import com.serioussem.exchangerate.data.core.DataModel
-import com.serioussem.exchangerate.domain.core.BaseMapper
+import com.serioussem.exchangerate.data.models.DataModel
+import com.serioussem.exchangerate.data.core.BaseMapper
 import com.serioussem.exchangerate.domain.core.DomainModel
 
 class DataModelToDomain : BaseMapper<DataModel, DomainModel> {

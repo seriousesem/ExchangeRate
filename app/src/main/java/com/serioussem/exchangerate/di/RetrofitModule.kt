@@ -1,7 +1,7 @@
 package com.serioussem.exchangerate.di
 
-import com.serioussem.exchangerate.data.monobank.datasource.retrofit.MonoBankService
-import com.serioussem.exchangerate.data.privatbank.datasource.retrofit.PrivatBankService
+import com.serioussem.exchangerate.data.monobank.retrofit.MonoBankService
+import com.serioussem.exchangerate.data.privatbank.retrofit.PrivatBankService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit

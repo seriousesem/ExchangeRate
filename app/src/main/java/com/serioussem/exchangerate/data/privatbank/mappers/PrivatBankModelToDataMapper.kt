@@ -1,8 +1,8 @@
-package com.serioussem.exchangerate.data.privatbank.datasource.mapper
+package com.serioussem.exchangerate.data.privatbank.mappers
 
-import com.serioussem.exchangerate.data.core.DataModel
-import com.serioussem.exchangerate.data.privatbank.datasource.model.PrivatBankModel
-import com.serioussem.exchangerate.domain.core.BaseMapper
+import com.serioussem.exchangerate.data.models.DataModel
+import com.serioussem.exchangerate.data.privatbank.model.PrivatBankModel
+import com.serioussem.exchangerate.data.core.BaseMapper
 
 class PrivatBankModelToDataMapper : BaseMapper<PrivatBankModel, DataModel> {
     override fun map(source: PrivatBankModel) =
