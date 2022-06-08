@@ -1,9 +1,13 @@
 package com.serioussem.exchangerate.data.core
 
-data class DataResult(
-    val country: String,
-    val currencyShortName: String,
-    val currencyFullName: String,
-    val buyingRate: Double,
-    val sellingRate: Double
-)
+sealed class DataResult<T>(
+    val data: T? = null,
+    val message: String? = null,
+    val empty: Int? = null
+) {
+    class Init<T>(emptyState: Int? = null) : DataResult<T>(empty = emptyState)
+    class Loading<T> : DataResult<T>()
+    class Success<T>(data: T) : DataResult<T>(data = data)
+    class Error<T>(message: String, data: T? = null) :
+        DataResult<T>(data = data, message = message)
+}
