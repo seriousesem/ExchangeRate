@@ -20,9 +20,14 @@
             android:textSize="@dimen/font_size_20sp"
             android:layout_margin="@dimen/indent_16dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+
+        <TextView
+            android:id="@+id/test_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

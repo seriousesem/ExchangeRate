@@ -1,5 +1,5 @@
 package com.serioussem.exchangerate.data.core
 
-interface BaseMapper<T, S> {
-    fun map(source: T): S
+interface BaseMapper<S, T> {
+    fun map(source: S): T
 }

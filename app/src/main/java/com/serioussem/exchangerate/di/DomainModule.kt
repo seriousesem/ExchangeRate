@@ -13,4 +13,6 @@ val domainModule = module {
     factory {
         MonoBankCurrencyRate(repository = get())
     }
+
+
 }

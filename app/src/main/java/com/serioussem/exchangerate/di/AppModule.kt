@@ -9,7 +9,7 @@ import org.koin.dsl.module
 val appModule = module {
 
     viewModel{
-        PrivatBankViewModel(useCase = get())
+        PrivatBankViewModel(useCase = get(), dispatchers = get())
     }
 
     viewModel {
