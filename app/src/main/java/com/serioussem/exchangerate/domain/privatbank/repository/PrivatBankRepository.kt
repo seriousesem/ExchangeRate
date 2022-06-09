@@ -6,7 +6,5 @@ import com.serioussem.exchangerate.domain.core.DomainModelList
 import com.serioussem.exchangerate.domain.core.DomainResult
 
 interface PrivatBankRepository: BaseRepository<DomainResult<DomainModelList>> {
-    override suspend fun fetchCurrencyRate(): DomainResult<DomainModelList> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun fetchCurrencyRate(): DomainResult<DomainModelList>
 }
