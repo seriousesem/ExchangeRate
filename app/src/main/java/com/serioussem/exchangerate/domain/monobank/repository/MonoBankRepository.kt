@@ -1,11 +1,11 @@
 package com.serioussem.exchangerate.domain.monobank.repository
 
 import com.serioussem.exchangerate.domain.core.BaseRepository
-import com.serioussem.exchangerate.domain.core.DomainModel
-import com.serioussem.exchangerate.domain.core.DomainResult
+import com.serioussem.exchangerate.domain.core.CurrencyRateModel
+import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
 
-interface MonoBankRepository: BaseRepository<DomainResult<DomainModel>> {
-    override suspend fun fetchCurrencyRate(): DomainResult<DomainModel> {
+interface MonoBankRepository: BaseRepository<CurrencyDomainResult<CurrencyRateModel>> {
+    override suspend fun fetchCurrencyRate(): CurrencyDomainResult<CurrencyRateModel> {
         TODO("Not yet implemented")
     }
 }

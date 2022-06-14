@@ -1,19 +1,16 @@
 package com.serioussem.exchangerate.di
 
 import com.serioussem.exchangerate.data.core.InternetConnection
+import com.serioussem.exchangerate.data.core.ResponseHandler
 import com.serioussem.exchangerate.data.core.ResourceProvider
-import com.serioussem.exchangerate.data.mappers.DataModelListToDomain
-import com.serioussem.exchangerate.data.mappers.DataModelToDomain
-import com.serioussem.exchangerate.data.mappers.DataResultToDomainMapper
+import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankDataResultToDomainMapper
 import com.serioussem.exchangerate.data.monobank.repository.MonoBankRepositoryImpl
-import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankRemoteDataSource
-import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankModelToDataMapper
-import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToDataListMapper
+import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSource
+import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToCurrencyModelMapper
 import com.serioussem.exchangerate.data.privatbank.repository.PrivatBankRepositoryImpl
 import com.serioussem.exchangerate.domain.monobank.repository.MonoBankRepository
 import com.serioussem.exchangerate.domain.privatbank.repository.PrivatBankRepository
 import org.koin.core.qualifier.named
-import org.koin.core.scope.get
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -27,7 +24,7 @@ val dataModule = module {
     }
 
     factory {
-        PrivatBankRemoteDataSource(internetConnection = get(), service = get(named("PrivatBankService")), mapper = get())
+        ResponseHandler(internetConnection = get(), provider = get())
     }
 
     factory {
@@ -39,23 +36,16 @@ val dataModule = module {
     }
 
     factory {
-        DataModelListToDomain(mapper = get())
+        PrivatBankDataSource(handler = get(), service = get(named("PrivatBankService")))
     }
 
     factory {
-        DataModelToDomain()
+        PrivatBankResponseToCurrencyModelMapper()
     }
 
     factory {
-        DataResultToDomainMapper(mapper = get())
+        PrivatBankDataResultToDomainMapper(mapper = get())
     }
 
-    factory {
-        PrivatBankModelToDataMapper()
-    }
-
-    factory {
-        PrivatBankResponseToDataListMapper(mapper = get())
-    }
 }
 

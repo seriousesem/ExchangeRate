@@ -1,31 +1,56 @@
 package com.serioussem.exchangerate.presentation.privatbank
 
+import android.util.Log
+import com.google.android.material.snackbar.Snackbar
 import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.databinding.BankFragmentBinding
-import com.serioussem.exchangerate.domain.core.DomainResult
+import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
+import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.presentation.core.BaseFragment
+import com.serioussem.exchangerate.presentation.home.adapters.CurrencyRateRecyclerViewAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PrivatBankFragment: BaseFragment<BankFragmentBinding>(BankFragmentBinding::inflate) {
+class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::inflate) {
 
     private val viewModel by viewModel<PrivatBankViewModel>()
+    private val currencyAdapter by lazy {
+        CurrencyRateRecyclerViewAdapter()
+    }
 
     override fun init() {
-        updatePageTitle()
-        initObservers()
+        initView()
+        initData()
     }
 
-    override fun updatePageTitle(){
-        binding.pageTitle.text = getString(R.string.currency_rate_in_privat_bank)
+    private fun initView() {
+        with(binding) {
+            with(currencyRateRecyclerView) {
+                setHasFixedSize(true)
+                adapter = currencyAdapter
+            }
+            pageTitle.text = getString(R.string.currency_rate_in_privat_bank)
+        }
+
     }
 
-    private fun initObservers(){
-        viewModel.data.observe(viewLifecycleOwner){result ->
-            when(result){
-                is DomainResult.Success -> result.data?.domainModelList?.forEach {
-                    binding.testContent.text = it.toString()
+    private fun initData() {
+        viewModel.data.observe(viewLifecycleOwner) {
+                when (it) {
+                    is CurrencyDomainResult.Success<*> -> {
+                        Log.d("Sem", "${it.data}")
+                        currencyAdapter.items = it.data as List<CurrencyRateModel>
+                    }
+                    is CurrencyDomainResult.Error<*> -> {
+                        activity?.let { it1 ->
+                            Snackbar.make(
+                                it1.findViewById(android.R.id.content),
+                                "${it.message}!",
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        };
+                    }
+                    else -> {}
                 }
             }
-        }
     }
 }

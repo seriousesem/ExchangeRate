@@ -4,12 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class PrivatBankResponse(
 
-	@field:SerializedName("PrivatBankResponse")
-	val privatBankResponse: List<PrivatBankModel>
-)
-
-data class PrivatBankModel(
-
 	@field:SerializedName("sale")
 	val selling_rate: String,
 

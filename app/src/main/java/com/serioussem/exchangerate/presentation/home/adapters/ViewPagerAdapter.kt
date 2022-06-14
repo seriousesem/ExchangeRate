@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.presentation.home
+package com.serioussem.exchangerate.presentation.home.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

@@ -1,34 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/currency_rv"
+    android:id="@+id/content_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.monobank.MonoBankFragment">
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/indent_16dp"
+        android:textSize="@dimen/font_size_20sp"
+        tools:text="@string/currency_rate_in_privat_bank" />
 
     <LinearLayout
+        android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/indent_8dp"
+        android:background="@drawable/border"
+        android:divider="@drawable/separator"
+        android:orientation="horizontal"
+        android:showDividers="middle">
 
         <TextView
-            android:id="@+id/page_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/header_currency_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="@string/currency_rate_in_privat_bank"
-            android:textSize="@dimen/font_size_20sp"
-            android:layout_margin="@dimen/indent_16dp"/>
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
+            android:layout_marginHorizontal="@dimen/indent_8dp"
+            android:layout_marginVertical="@dimen/indent_4dp"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="@string/currency_full_name"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/test_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:id="@+id/header_buying_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/indent_4dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="@string/bay"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/header_selling_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/indent_4dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="@string/sale"
+            android:textStyle="bold" />
     </LinearLayout>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/currency_rate_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/currency_rate_view_holder_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+</LinearLayout>

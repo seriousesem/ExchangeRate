@@ -1,7 +1,8 @@
 package com.serioussem.exchangerate.domain.core
 
-data class DomainModel(
-    val currencyShortName: String,
+data class CurrencyRateModel(
+    val countryFlag: Int,
+    val currencyFullName: Int,
     val buyingRate: String,
     val sellingRate: String
 )

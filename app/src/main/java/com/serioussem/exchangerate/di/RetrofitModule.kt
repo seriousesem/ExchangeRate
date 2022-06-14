@@ -3,6 +3,7 @@ package com.serioussem.exchangerate.di
 import com.serioussem.exchangerate.data.monobank.retrofit.MonoBankService
 import com.serioussem.exchangerate.data.privatbank.retrofit.PrivatBankService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -10,47 +11,55 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val PRIVAT_BANK_URL = "https://api.privatbank.ua/p24api/"
-private const val MONO_BANK_URL = "https"
+private const val MONO_BANK_URL = "https://api.monobank.ua/"
 
 val privatBankRetrofitModule = module {
-
-    single(named("PrivatBankClient")) {
-        createdHttpClient()
+    single(named("PrivatBankInterceptor")) {
+        createLoggingInterceptor()
     }
-
+    single(named("PrivatBankClient")) {
+        createOkHttpClient(get(named("PrivatBankInterceptor")))
+    }
+    single(named("PrivatBankRetrofit")) {
+        createRetrofit(PRIVAT_BANK_URL, get(named("PrivatBankClient")))
+    }
     single(named("PrivatBankService")) {
-        createdRetrofitService<PrivatBankService>(
-            baseUrl = PRIVAT_BANK_URL,
-            okHttpClient = get(named("PrivatBankClient"))
-        )
+        createRetrofitService<PrivatBankService>(get(named("PrivatBankRetrofit")))
     }
 }
 val monoBankRetrofitModule = module {
-
-    single(named("MonoBankClient")) {
-        createdHttpClient()
+    single(named("MonoBankInterceptor")) {
+        createLoggingInterceptor()
     }
-
-    single {
-        createdRetrofitService<MonoBankService>(
-            baseUrl = MONO_BANK_URL,
-            okHttpClient = get(named("MonoBankClient"))
-        )
+    single(named("MonoBankClient")) {
+        createOkHttpClient(get(named("MonoBankInterceptor")))
+    }
+    single(named("MonoBankRetrofit")) {
+        createRetrofit(MONO_BANK_URL, get(named("MonoBankClient")))
+    }
+    single(named("MonoBankService")) {
+        createRetrofitService<PrivatBankService>(get(named("MonoBankRetrofit")))
     }
 }
 
-fun createdHttpClient(): OkHttpClient =
-    OkHttpClient.Builder()
+fun createLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+    level = HttpLoggingInterceptor.Level.BODY
+}
+
+fun createOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
+        .callTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
-inline fun <reified T> createdRetrofitService(baseUrl: String, okHttpClient: OkHttpClient): PrivatBankService {
-    val retrofit = Retrofit.Builder()
-        .client(okHttpClient)
+fun createRetrofit(baseUrl: String, okHttpClient: OkHttpClient): Retrofit =
+    Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(okHttpClient)
         .build()
-    return retrofit.create(PrivatBankService::class.java)
 
-}
+inline fun <reified T> createRetrofitService(retrofit: Retrofit): T =
+    retrofit.create(T::class.java)
+
