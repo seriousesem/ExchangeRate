@@ -11,11 +11,11 @@ import org.koin.dsl.module
 val appModule = module {
 
     viewModel {
-        PrivatBankViewModel(useCase = get(), dispatchers = get())
+        PrivatBankViewModel(repository = get(), dispatchers = get())
     }
 
     viewModel {
-        MonoBankViewModel(useCase = get())
+        MonoBankViewModel(repository = get(), dispatchers = get())
     }
 
     factory {

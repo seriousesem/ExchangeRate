@@ -22,10 +22,9 @@ class PrivatBankViewModel(
         fetchCurrencyRate()
     }
 
-
     private fun fetchCurrencyRate() {
 //        mutableData.value = DomainResult.Loading()
-        dispatchers.launchBackground(viewModelScope){
+        dispatchers.launchBackground(viewModelScope) {
             mutableData.postValue(repository.fetchCurrencyRate())
         }
     }

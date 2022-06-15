@@ -6,17 +6,6 @@ import com.serioussem.exchangerate.data.privatbank.model.PrivatBankResponse
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 
 class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankResponse, CurrencyRateModel> {
-    private val targetCurrency = listOf("USD", "EUR", "BTC")
-    private val currencyFullName = listOf(
-        R.string.dollar_usa,
-        R.string.euro,
-        R.string.bitcoin
-    )
-    private val countryFlag = listOf(
-        R.drawable.usa,
-        R.drawable.eur,
-        R.drawable.bitcoin
-    )
 
     override fun map(source: PrivatBankResponse): CurrencyRateModel =
         when (source.targetCurrency) {
@@ -39,4 +28,16 @@ class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankRespons
                 sellingRate = source.selling_rate
             )
         }
+    private val targetCurrency = listOf("USD", "EUR", "BTC")
+    private val currencyFullName = listOf(
+        R.string.dollar_usa,
+        R.string.euro,
+        R.string.bitcoin
+    )
+    private val countryFlag = listOf(
+        R.drawable.us,
+        R.drawable.eur,
+        R.drawable.bitcoin
+    )
+
 }

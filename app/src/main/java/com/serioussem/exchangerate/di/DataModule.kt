@@ -4,6 +4,8 @@ import com.serioussem.exchangerate.data.core.InternetConnection
 import com.serioussem.exchangerate.data.core.ResponseHandler
 import com.serioussem.exchangerate.data.core.ResourceProvider
 import com.serioussem.exchangerate.data.monobank.datasource.MonoBankDataSource
+import com.serioussem.exchangerate.data.monobank.mappers.MonoBankDataResultToDomainMapper
+import com.serioussem.exchangerate.data.monobank.mappers.MonoBankResponseToCurrencyRateModelMapper
 import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankDataResultToDomainMapper
 import com.serioussem.exchangerate.data.monobank.repository.MonoBankRepositoryImpl
 import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSource
@@ -21,7 +23,7 @@ val dataModule = module {
     }
 
     factory<MonoBankRepository> {
-        MonoBankRepositoryImpl()
+        MonoBankRepositoryImpl(dataSource = get(), mapper = get())
     }
 
     factory {
@@ -50,6 +52,14 @@ val dataModule = module {
 
     factory {
         PrivatBankDataResultToDomainMapper(mapper = get())
+    }
+
+    factory {
+        MonoBankResponseToCurrencyRateModelMapper()
+    }
+
+    factory {
+        MonoBankDataResultToDomainMapper(mapper = get())
     }
 
 }
