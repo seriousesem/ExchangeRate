@@ -18,7 +18,7 @@
         tools:ignore="ObsoleteSdkInt"
         tools:targetApi="m" >
         <activity
-            android:name=".presentation.home.screens.HomeScreen"
+            android:name=".presentation.home.HomeScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

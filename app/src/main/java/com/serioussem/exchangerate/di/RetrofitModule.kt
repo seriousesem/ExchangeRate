@@ -1,6 +1,7 @@
 package com.serioussem.exchangerate.di
 
 
+import com.serioussem.exchangerate.data.monobank.retrofit.MonoBankService
 import com.serioussem.exchangerate.data.privatbank.retrofit.PrivatBankService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -38,7 +39,7 @@ val monoBankRetrofitModule = module {
         createRetrofit(MONO_BANK_URL, get(named("MonoBankClient")))
     }
     single(named("MonoBankService")) {
-        createRetrofitService<PrivatBankService>(get(named("MonoBankRetrofit")))
+        createRetrofitService<MonoBankService>(get(named("MonoBankRetrofit")))
     }
 }
 

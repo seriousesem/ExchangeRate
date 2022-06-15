@@ -13,8 +13,9 @@ class MonoBankDataResultToDomainMapper(private var mapper: MonoBankResponseToCur
         when (source) {
             is CurrencyDataResult.Success -> {
                 val currencyRateModelList = mutableListOf<CurrencyRateModel>()
-                source.data?.forEach {
-                    currencyRateModelList.add(mapper.map(it))
+                for (position in 0..6) {
+                    if (position == 2) continue
+                    currencyRateModelList.add(mapper.map(source.data?.get(position)!!))
                 }
                 CurrencyDomainResult.Success(data = currencyRateModelList)
             }

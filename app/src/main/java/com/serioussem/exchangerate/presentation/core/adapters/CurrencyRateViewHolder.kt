@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.presentation.home.adapters
+package com.serioussem.exchangerate.presentation.core.adapters
 
 import androidx.recyclerview.widget.RecyclerView
 import com.serioussem.exchangerate.databinding.CurrencyRateViewHolderItemBinding

@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.presentation.home.screens
+package com.serioussem.exchangerate.presentation.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

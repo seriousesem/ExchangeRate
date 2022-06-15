@@ -30,32 +30,31 @@
             android:id="@+id/header_currency_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/indent_8dp"
+            android:layout_marginHorizontal="@dimen/indent_4dp"
             android:layout_marginVertical="@dimen/indent_4dp"
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:gravity="center"
-            android:text="@string/currency_full_name"
-            android:textStyle="bold" />
+            android:text="@string/currency_full_name" />
 
         <TextView
             android:id="@+id/header_buying_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="3"
+            android:layout_marginVertical="@dimen/indent_4dp"
+            android:layout_marginHorizontal="@dimen/indent_2dp"
+            android:layout_weight="2"
             android:gravity="center"
-            android:text="@string/bay"
-            android:textStyle="bold" />
+            android:text="@string/bay" />
 
         <TextView
             android:id="@+id/header_selling_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="3"
+            android:layout_marginVertical="@dimen/indent_4dp"
+            android:layout_marginHorizontal="@dimen/indent_2dp"
+            android:layout_weight="2"
             android:gravity="center"
-            android:text="@string/sale"
-            android:textStyle="bold" />
+            android:text="@string/sale" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

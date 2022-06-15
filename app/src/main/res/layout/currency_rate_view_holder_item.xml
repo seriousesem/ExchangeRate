@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:divider="@drawable/separator"
         android:gravity="center"
         android:orientation="horizontal"
@@ -27,14 +27,14 @@
             android:layout_weight="1"
             android:contentDescription="@string/country_flag"
             android:gravity="center"
-            android:src="@drawable/usa" />
+            android:src="@drawable/us" />
 
         <TextView
             android:id="@+id/currency_full_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="4"
+            android:layout_marginVertical="@dimen/indent_8dp"
+            android:layout_weight="6"
             android:gravity="center"
             tools:text="@string/currency_full_name" />
 
@@ -42,8 +42,8 @@
             android:id="@+id/buying_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
+            android:layout_marginHorizontal="@dimen/indent_2dp"
             android:gravity="center"
             tools:text="@string/bay" />
 
@@ -51,8 +51,8 @@
             android:id="@+id/selling_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
+            android:layout_marginHorizontal="@dimen/indent_2dp"
             android:gravity="center"
             tools:text="@string/sale" />
 

@@ -7,27 +7,25 @@ import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 
 class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankResponse, CurrencyRateModel> {
 
-    override fun map(source: PrivatBankResponse): CurrencyRateModel =
-        when (source.targetCurrency) {
-            targetCurrency.component1() -> CurrencyRateModel(
-                countryFlag = countryFlag.component1(),
-                currencyFullName = currencyFullName.component1(),
-                buyingRate = source.buying_rate,
-                sellingRate = source.selling_rate
-            )
-            targetCurrency.component2() -> CurrencyRateModel(
-                countryFlag = countryFlag.component2(),
-                currencyFullName = currencyFullName.component2(),
-                buyingRate = source.buying_rate,
-                sellingRate = source.selling_rate
-            )
-            else -> CurrencyRateModel(
-                countryFlag = countryFlag.component3(),
-                currencyFullName = currencyFullName.component3(),
-                buyingRate = source.buying_rate,
-                sellingRate = source.selling_rate
+    override fun map(source: PrivatBankResponse): CurrencyRateModel {
+        val responseTargetCurrency = source.targetCurrency
+        val currencyIndex = targetCurrency.indexOf(responseTargetCurrency)
+        var currencyRate = CurrencyRateModel(
+            countryFlag = countryFlag.component1(),
+            currencyFullName = currencyFullName.component1(),
+            buyingRate = source.buying_rate,
+            sellingRate = source.selling_rate
+        )
+        if (targetCurrency.contains(responseTargetCurrency)) {
+            currencyRate = CurrencyRateModel(
+                countryFlag = countryFlag[currencyIndex],
+                currencyFullName = currencyFullName[currencyIndex],
+                buyingRate = source.buying_rate.dropLast(3),
+                sellingRate = source.selling_rate.dropLast(3)
             )
         }
+        return currencyRate
+    }
     private val targetCurrency = listOf("USD", "EUR", "BTC")
     private val currencyFullName = listOf(
         R.string.dollar_usa,

@@ -7,7 +7,7 @@ import com.serioussem.exchangerate.databinding.BankFragmentBinding
 import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.presentation.core.BaseFragment
-import com.serioussem.exchangerate.presentation.home.adapters.CurrencyRateRecyclerViewAdapter
+import com.serioussem.exchangerate.presentation.core.adapters.CurrencyRateRecyclerViewAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

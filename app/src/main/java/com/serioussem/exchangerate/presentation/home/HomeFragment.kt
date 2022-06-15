@@ -1,11 +1,11 @@
-package com.serioussem.exchangerate.presentation.home.screens
+package com.serioussem.exchangerate.presentation.home
 
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.databinding.HomeFragmentBinding
 import com.serioussem.exchangerate.presentation.core.BaseFragment
-import com.serioussem.exchangerate.presentation.home.adapters.ViewPagerAdapter
+import com.serioussem.exchangerate.presentation.core.adapters.ViewPagerAdapter
 
 
 class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
