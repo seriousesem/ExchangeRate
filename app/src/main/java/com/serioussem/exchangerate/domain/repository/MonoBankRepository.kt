@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.domain.monobank.repository
+package com.serioussem.exchangerate.domain.repository
 
 import com.serioussem.exchangerate.domain.core.BaseRepository
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel

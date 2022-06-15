@@ -4,12 +4,12 @@ import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankDataResultT
 import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSource
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
-import com.serioussem.exchangerate.domain.privatbank.repository.PrivatBankRepository
+import com.serioussem.exchangerate.domain.repository.PrivatBankRepository
 
 class PrivatBankRepositoryImpl(
     private val dataSource: PrivatBankDataSource,
     private val mapper: PrivatBankDataResultToDomainMapper
 ) : PrivatBankRepository {
     override suspend fun fetchCurrencyRate(): CurrencyDomainResult<List<CurrencyRateModel>> =
-       mapper.map(source = dataSource.fetchFirstCurrencyResult())
+       mapper.map(source = dataSource.fetchCurrencyRate())
 }

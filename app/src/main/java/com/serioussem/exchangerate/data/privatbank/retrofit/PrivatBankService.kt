@@ -8,8 +8,8 @@ import retrofit2.http.GET
 interface PrivatBankService {
 
     companion object {
-        private const val PRIVAT_BANK_FIRST_ENDPOINT = "pubinfo?json&exchange&coursid=5"
+        private const val PRIVAT_BANK_ENDPOINT = "pubinfo?json&exchange&coursid=5"
     }
-    @GET(PRIVAT_BANK_FIRST_ENDPOINT)
-    suspend fun fetchFirstResponse(): Response<List<PrivatBankResponse>>
+    @GET(PRIVAT_BANK_ENDPOINT)
+    suspend fun fetch(): Response<List<PrivatBankResponse>>
 }

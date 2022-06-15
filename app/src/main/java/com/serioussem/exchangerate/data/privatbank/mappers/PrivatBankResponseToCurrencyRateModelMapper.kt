@@ -5,7 +5,7 @@ import com.serioussem.exchangerate.data.core.BaseMapper
 import com.serioussem.exchangerate.data.privatbank.model.PrivatBankResponse
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 
-class PrivatBankResponseToCurrencyModelMapper : BaseMapper<PrivatBankResponse, CurrencyRateModel> {
+class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankResponse, CurrencyRateModel> {
     private val targetCurrency = listOf("USD", "EUR", "BTC")
     private val currencyFullName = listOf(
         R.string.dollar_usa,

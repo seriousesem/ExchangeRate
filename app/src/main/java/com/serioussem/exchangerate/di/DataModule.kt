@@ -3,13 +3,14 @@ package com.serioussem.exchangerate.di
 import com.serioussem.exchangerate.data.core.InternetConnection
 import com.serioussem.exchangerate.data.core.ResponseHandler
 import com.serioussem.exchangerate.data.core.ResourceProvider
+import com.serioussem.exchangerate.data.monobank.datasource.MonoBankDataSource
 import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankDataResultToDomainMapper
 import com.serioussem.exchangerate.data.monobank.repository.MonoBankRepositoryImpl
 import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSource
-import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToCurrencyModelMapper
+import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToCurrencyRateModelMapper
 import com.serioussem.exchangerate.data.privatbank.repository.PrivatBankRepositoryImpl
-import com.serioussem.exchangerate.domain.monobank.repository.MonoBankRepository
-import com.serioussem.exchangerate.domain.privatbank.repository.PrivatBankRepository
+import com.serioussem.exchangerate.domain.repository.MonoBankRepository
+import com.serioussem.exchangerate.domain.repository.PrivatBankRepository
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -40,7 +41,11 @@ val dataModule = module {
     }
 
     factory {
-        PrivatBankResponseToCurrencyModelMapper()
+        MonoBankDataSource(handler = get(), service = get(named("MonoBankService")))
+    }
+
+    factory {
+        PrivatBankResponseToCurrencyRateModelMapper()
     }
 
     factory {

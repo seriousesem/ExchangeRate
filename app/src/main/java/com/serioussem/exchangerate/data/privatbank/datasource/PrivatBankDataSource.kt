@@ -9,8 +9,8 @@ class PrivatBankDataSource(
     private val handler: ResponseHandler,
     private val service: PrivatBankService
 ) {
-    suspend fun fetchFirstCurrencyResult(): CurrencyDataResult<List<PrivatBankResponse>> =
+    suspend fun fetchCurrencyRate(): CurrencyDataResult<List<PrivatBankResponse>> =
         handler.fetch() {
-            service.fetchFirstResponse()
+            service.fetch()
         }
 }

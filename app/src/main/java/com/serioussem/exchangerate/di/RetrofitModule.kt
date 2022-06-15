@@ -1,6 +1,6 @@
 package com.serioussem.exchangerate.di
 
-import com.serioussem.exchangerate.data.monobank.retrofit.MonoBankService
+
 import com.serioussem.exchangerate.data.privatbank.retrofit.PrivatBankService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
