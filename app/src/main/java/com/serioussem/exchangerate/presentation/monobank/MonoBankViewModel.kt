@@ -1,32 +1,45 @@
 package com.serioussem.exchangerate.presentation.monobank
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
-import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.domain.repository.MonoBankRepository
-import com.serioussem.exchangerate.presentation.core.AppDispatchers
+import com.serioussem.exchangerate.presentation.core.UiState
+import com.serioussem.exchangerate.utils.AppDispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.update
 
 class MonoBankViewModel(
     private val repository: MonoBankRepository,
-    private val dispatchers: AppDispatchers
+    private val dispatchers: AppDispatchers,
+    uiState: UiState
 ) : ViewModel() {
 
-    private var mutableData =
-        MutableLiveData<CurrencyDomainResult<List<CurrencyRateModel>>>(CurrencyDomainResult.Init())
-
-    val data: LiveData<CurrencyDomainResult<List<CurrencyRateModel>>> = mutableData
+    private val mutableUiState = MutableStateFlow(uiState)
+    val uiState = mutableUiState.asStateFlow()
 
     init {
         fetchCurrencyRate()
     }
 
     private fun fetchCurrencyRate() {
-//        mutableData.value = DomainResult.Loading()
         dispatchers.launchBackground(viewModelScope) {
-            mutableData.postValue(repository.fetchCurrencyRate())
+            repository.fetchCurrencyRate().collect {result ->
+                when(result){
+                    is CurrencyDomainResult.Loading -> mutableUiState.update {
+                        it.copy(loading = true)
+                    }
+                    is CurrencyDomainResult.Success -> mutableUiState.update{
+                        it.copy(currencyRateList = result.data!!)
+                    }
+                    is CurrencyDomainResult.Error -> mutableUiState.update {
+                        it.copy(errorMessage = result.message)
+                    }
+                    else -> throw IllegalStateException()
+                }
+            }
         }
     }
 }

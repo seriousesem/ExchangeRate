@@ -19,7 +19,7 @@ import org.koin.dsl.module
 val dataModule = module {
 
     factory<PrivatBankRepository> {
-        PrivatBankRepositoryImpl(dataSource = get(), mapper = get())
+        PrivatBankRepositoryImpl(dataSource = get(), mapper = get(), dispatchers = get())
     }
 
     factory<MonoBankRepository> {

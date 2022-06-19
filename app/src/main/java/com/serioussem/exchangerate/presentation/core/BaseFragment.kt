@@ -25,7 +25,7 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         init()
-        observes()
+        collectFlow()
     }
 
     override fun onDestroyView() {
@@ -33,7 +33,7 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) 
         bindingMutable = null
     }
 
-    open fun observes() {}
+    open fun collectFlow() {}
 
     open fun updatePageTitle() {}
 

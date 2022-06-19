@@ -1,4 +1,4 @@
-package com.serioussem.exchangerate.presentation.core
+package com.serioussem.exchangerate.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default

@@ -1,13 +1,10 @@
 package com.serioussem.exchangerate.presentation.privatbank
 
-import android.util.Log
-import com.google.android.material.snackbar.Snackbar
 import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.databinding.BankFragmentBinding
-import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
-import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.presentation.core.BaseFragment
 import com.serioussem.exchangerate.presentation.core.adapters.CurrencyRateRecyclerViewAdapter
+import com.serioussem.exchangerate.utils.collectFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::inflate) {
@@ -19,7 +16,6 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
 
     override fun init() {
         initView()
-        initData()
     }
 
     private fun initView() {
@@ -33,24 +29,9 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
 
     }
 
-    private fun initData() {
-        viewModel.data.observe(viewLifecycleOwner) {
-                when (it) {
-                    is CurrencyDomainResult.Success<*> -> {
-                        Log.d("Sem", "${it.data}")
-                        currencyAdapter.items = it.data as List<CurrencyRateModel>
-                    }
-                    is CurrencyDomainResult.Error<*> -> {
-                        activity?.let { it1 ->
-                            Snackbar.make(
-                                it1.findViewById(android.R.id.content),
-                                "${it.message}!",
-                                Snackbar.LENGTH_LONG
-                            ).show()
-                        };
-                    }
-                    else -> {}
-                }
-            }
+    override fun collectFlow() {
+        collectFlow(viewModel.uiState){
+            it.update(binding = binding, adapter = currencyAdapter)
+        }
     }
 }

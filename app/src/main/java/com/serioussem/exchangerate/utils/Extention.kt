@@ -1,6 +1,5 @@
 package com.serioussem.exchangerate.utils
 
-import android.app.Activity
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -12,20 +11,23 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-fun updateText(view: TextView, message: Any) {
-    view.text = message.toString()
+fun TextView.updateText(message: Any) {
+    text = message.toString()
 }
 
-fun Activity.snackbar(message: String) {
-    Snackbar.make(this, findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG).show()
+fun View.showSnackBar(message: String, length: Int = Snackbar.LENGTH_SHORT) {
+    val snack = Snackbar.make(this, message, length)
+    snack.show()
 }
 
-fun showView(view: View) {
-    view.visibility = View.VISIBLE
+fun View.showView(): View {
+    visibility = View.VISIBLE
+    return this
 }
 
-fun hideView(view: View) {
-    view.visibility = View.GONE
+fun View.hideView(): View {
+    visibility = View.GONE
+    return this
 }
 
 fun <T> Fragment.collectFlow(flow: Flow<T>, onCollect: suspend (T) -> Unit) =

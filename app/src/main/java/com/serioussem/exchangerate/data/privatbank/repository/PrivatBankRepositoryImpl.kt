@@ -5,11 +5,21 @@ import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSour
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
 import com.serioussem.exchangerate.domain.repository.PrivatBankRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.*
 
 class PrivatBankRepositoryImpl(
     private val dataSource: PrivatBankDataSource,
-    private val mapper: PrivatBankDataResultToDomainMapper
+    private val mapper: PrivatBankDataResultToDomainMapper,
+    private val dispatcher: CoroutineDispatcher
 ) : PrivatBankRepository {
-    override suspend fun fetchCurrencyRate(): CurrencyDomainResult<List<CurrencyRateModel>> =
-       mapper.map(source = dataSource.fetchCurrencyRate())
+    override suspend fun fetchCurrencyRate(): Flow<CurrencyDomainResult<List<CurrencyRateModel>>> =
+        flow {
+            emit(mapper.map(source = dataSource.fetchCurrencyRate()))
+        }.onStart {
+            emit(CurrencyDomainResult.Loading())
+        }.flowOn(dispatcher)
+            .catch {
+                emit(CurrencyDomainResult.Error(message = it.message.toString()))
+            }
 }
