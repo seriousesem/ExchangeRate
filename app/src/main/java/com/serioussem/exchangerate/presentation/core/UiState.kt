@@ -14,6 +14,7 @@ data class UiState(
 ) {
     fun update(binding: BankFragmentBinding, adapter: CurrencyRateRecyclerViewAdapter) {
         if (loading) {
+            binding.currencyRateRecyclerView.hideView()
             binding.progressBar.showView()
         }
         if (errorMessage?.isNotBlank() == true) {
@@ -23,6 +24,7 @@ data class UiState(
 
         if (currencyRateList.isNotEmpty()) {
             binding.progressBar.hideView()
+            binding.currencyRateRecyclerView.showView()
             adapter.items = currencyRateList
         }
     }

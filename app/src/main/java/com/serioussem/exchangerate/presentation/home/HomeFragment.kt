@@ -21,38 +21,38 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
     }
 
     private fun initViewPager() {
-        binding.viewPager.adapter =
-            ViewPagerAdapter(fragmentManager = parentFragmentManager, lifecycle = lifecycle)
-        binding.tabLayout.tabIconTint = null
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            when (position) {
-                0 -> {
-                    with(tab) {
-                        setText(R.string.privat_bank)
-                        setIcon(R.drawable.privat_logo)
-                        icon?.alpha = ALPHA_MAX
+        with(binding){
+            viewPager.adapter =
+                ViewPagerAdapter(fragmentManager = parentFragmentManager, lifecycle = lifecycle)
+            tabLayout.tabIconTint = null
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                when (position) {
+                    0 -> {
+                        with(tab) {
+                            setText(R.string.privat_bank)
+                            setIcon(R.drawable.privat_logo)
+                            icon?.alpha = ALPHA_MAX
+                        }
+                    }
+                    1 -> {
+                        with(tab) {
+                            setText(R.string.mono_bank)
+                            setIcon(R.drawable.mono_logo)
+                            icon?.alpha = ALPHA_MIN
+                        }
                     }
                 }
-                1 -> {
-                    with(tab) {
-                        setText(R.string.mono_bank)
-                        setIcon(R.drawable.mono_logo)
-                        icon?.alpha = ALPHA_MIN
-                    }
+            }.attach()
+
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    tab.icon?.alpha = ALPHA_MAX
                 }
-            }
-        }.attach()
-
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                tab.icon?.alpha = ALPHA_MAX
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-                tab.icon?.alpha = ALPHA_MIN
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-        })
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                    tab.icon?.alpha = ALPHA_MIN
+                }
+                override fun onTabReselected(tab: TabLayout.Tab?) {}
+            })
+        }
     }
 }

@@ -16,6 +16,7 @@ class MonoBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::
     }
 
     override fun init() {
+        swipeRefresh()
         initView()
     }
 
@@ -33,6 +34,17 @@ class MonoBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding::
     override fun collectFlow() {
         collectFlow(viewModel.uiState){
             it.update(binding = binding, adapter = currencyAdapter)
+        }
+    }
+    private fun swipeRefresh() {
+        with(binding) {
+            with(swipeRefreshLayout) {
+                setOnRefreshListener {
+                    viewModel.fetchCurrencyRate()
+                    isRefreshing = false
+                }
+
+            }
         }
     }
 

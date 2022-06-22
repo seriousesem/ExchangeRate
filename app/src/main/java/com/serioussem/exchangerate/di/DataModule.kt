@@ -13,17 +13,26 @@ import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToC
 import com.serioussem.exchangerate.data.privatbank.repository.PrivatBankRepositoryImpl
 import com.serioussem.exchangerate.domain.repository.MonoBankRepository
 import com.serioussem.exchangerate.domain.repository.PrivatBankRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import okhttp3.Dispatcher
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.qualifier.named
+import org.koin.core.scope.get
 import org.koin.dsl.module
 
 val dataModule = module {
 
     factory<PrivatBankRepository> {
-        PrivatBankRepositoryImpl(dataSource = get(), mapper = get(), dispatchers = get())
+        PrivatBankRepositoryImpl(dataSource = get(), mapper = get(), get())
     }
 
     factory<MonoBankRepository> {
-        MonoBankRepositoryImpl(dataSource = get(), mapper = get())
+        MonoBankRepositoryImpl(dataSource = get(), mapper = get(), dispatcher = get())
+    }
+
+    factory {
+        Dispatchers.IO
     }
 
     factory {

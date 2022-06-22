@@ -20,4 +20,5 @@ class HomeScreen : AppCompatActivity() {
         val navController = navHostFragment.navController
 
     }
+
 }

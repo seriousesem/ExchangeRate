@@ -24,7 +24,7 @@ class PrivatBankViewModel(
         fetchCurrencyRate()
     }
 
-    private fun fetchCurrencyRate() {
+    fun fetchCurrencyRate() {
         dispatchers.launchBackground(viewModelScope) {
             repository.fetchCurrencyRate().collect {result ->
                 when(result){

@@ -15,6 +15,7 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
     }
 
     override fun init() {
+        swipeRefresh()
         initView()
     }
 
@@ -30,8 +31,19 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
     }
 
     override fun collectFlow() {
-        collectFlow(viewModel.uiState){
+        collectFlow(viewModel.uiState) {
             it.update(binding = binding, adapter = currencyAdapter)
+        }
+    }
+
+    private fun swipeRefresh() {
+        with(binding) {
+            with(swipeRefreshLayout) {
+                setOnRefreshListener {
+                    viewModel.fetchCurrencyRate()
+                    isRefreshing = false
+                }
+            }
         }
     }
 }

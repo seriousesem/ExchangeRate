@@ -38,4 +38,5 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) 
     open fun updatePageTitle() {}
 
     abstract fun init()
+
 }
