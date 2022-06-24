@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">Курс валют</string>
-    <string name="privat_bank">ПриватБанк</string>
-    <string name="mono_bank">МоноБанк</string>
-    <string name="currency_rate_in_privat_bank">Курс валют в ПриватБанк</string>
-    <string name="currency_rate_in_mono_bank">Курс валют в МоноБанк</string>
+    <string name="privat_bank">Приват</string>
+    <string name="mono_bank">Моно</string>
+    <string name="nbu">НБУ</string>
+    <string name="favorite">Обрані</string>
+    <string name="currency_rate_in_privat_bank">Курс валют в ПриватБанку</string>
+    <string name="currency_rate_in_mono_bank">Курс валют в МоноБанку</string>
+    <string name="currency_rate_in_nbu">Курс валют в НБУ</string>
+    <string name="currency_rate_favorites">Курс обраних валют в банках</string>
     <string name="currency_full_name">Валюта</string>
     <string name="currency_short_name">USD</string>
-    <string name="bay">Покупка</string>
+    <string name="bay">Купівля</string>
     <string name="sale">Продаж</string>
     <string name="country_flag">country_flag</string>
     <string name="dollar_usa">Долар США</string>
@@ -16,4 +20,6 @@
     <string name="japanese_yen">Японська єна</string>
     <string name="swiss_franc">Швейцарський франк</string>
     <string name="yuan_renminbi">Китайський юань</string>
+    <string name="favorite_border">favorite_border</string>
+    <string name="work_in_progess">work in progess</string>
 </resources>

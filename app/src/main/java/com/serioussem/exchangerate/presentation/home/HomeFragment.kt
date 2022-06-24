@@ -29,15 +29,29 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
                 when (position) {
                     0 -> {
                         with(tab) {
-                            setText(R.string.privat_bank)
-                            setIcon(R.drawable.privat_logo)
+
+                            setIcon(R.drawable.nbu_icon)
                             icon?.alpha = ALPHA_MAX
                         }
                     }
                     1 -> {
                         with(tab) {
-                            setText(R.string.mono_bank)
-                            setIcon(R.drawable.mono_logo)
+
+                            setIcon(R.drawable.privatbank_icon)
+                            icon?.alpha = ALPHA_MIN
+                        }
+                    }
+                    2 -> {
+                        with(tab) {
+
+                            setIcon(R.drawable.monobank_icon)
+                            icon?.alpha = ALPHA_MIN
+                        }
+                    }
+                    3 -> {
+                        with(tab) {
+
+                            setIcon(R.drawable.favorites_icon)
                             icon?.alpha = ALPHA_MIN
                         }
                     }

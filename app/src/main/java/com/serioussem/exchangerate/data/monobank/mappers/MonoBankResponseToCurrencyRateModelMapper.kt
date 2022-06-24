@@ -58,7 +58,8 @@ class MonoBankResponseToCurrencyRateModelMapper : BaseMapper<MonoBankResponse, C
         R.drawable.gb,
         R.drawable.jp,
         R.drawable.ch,
-        R.drawable.cn
+        R.drawable.cn,
+        R.drawable.noting
     )
 
 }
