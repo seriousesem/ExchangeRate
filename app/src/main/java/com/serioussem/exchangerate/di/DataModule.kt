@@ -8,17 +8,18 @@ import com.serioussem.exchangerate.data.monobank.mappers.MonoBankDataResultToDom
 import com.serioussem.exchangerate.data.monobank.mappers.MonoBankResponseToCurrencyRateModelMapper
 import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankDataResultToDomainMapper
 import com.serioussem.exchangerate.data.monobank.repository.MonoBankRepositoryImpl
+import com.serioussem.exchangerate.data.nbu.mappers.NbuResponseToCurrencyRateModelMapper
+import com.serioussem.exchangerate.data.nbu.datasource.NbuDataSource
+import com.serioussem.exchangerate.data.nbu.mappers.NbuDataResultToDomainMapper
+import com.serioussem.exchangerate.data.nbu.repository.NbuRepositoryImpl
 import com.serioussem.exchangerate.data.privatbank.datasource.PrivatBankDataSource
 import com.serioussem.exchangerate.data.privatbank.mappers.PrivatBankResponseToCurrencyRateModelMapper
 import com.serioussem.exchangerate.data.privatbank.repository.PrivatBankRepositoryImpl
 import com.serioussem.exchangerate.domain.repository.MonoBankRepository
+import com.serioussem.exchangerate.domain.repository.NbuRepository
 import com.serioussem.exchangerate.domain.repository.PrivatBankRepository
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Dispatcher
-import org.koin.core.module.dsl.factoryOf
 import org.koin.core.qualifier.named
-import org.koin.core.scope.get
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -29,6 +30,10 @@ val dataModule = module {
 
     factory<MonoBankRepository> {
         MonoBankRepositoryImpl(dataSource = get(), mapper = get(), dispatcher = get())
+    }
+
+    factory<NbuRepository> {
+        NbuRepositoryImpl(dataSource = get(), mapper = get(), dispatcher = get())
     }
 
     factory {
@@ -56,6 +61,10 @@ val dataModule = module {
     }
 
     factory {
+        NbuDataSource(handler = get(), service = get(named("NbuService")))
+    }
+
+    factory {
         PrivatBankResponseToCurrencyRateModelMapper()
     }
 
@@ -69,6 +78,13 @@ val dataModule = module {
 
     factory {
         MonoBankDataResultToDomainMapper(mapper = get())
+    }
+
+    factory {
+        NbuResponseToCurrencyRateModelMapper()
+    }
+    factory {
+        NbuDataResultToDomainMapper(mapper = get())
     }
 
 }

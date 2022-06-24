@@ -13,5 +13,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/work_in_process"
-        android:contentDescription="@string/work_in_progess" />
+        android:contentDescription="@string/work_in_progress" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,8 @@ class App : Application() {
                     dataModule,
                     domainModule,
                     privatBankRetrofitModule,
-                    monoBankRetrofitModule
+                    monoBankRetrofitModule,
+                    nbuRetrofitModule
                 )
             )
         }

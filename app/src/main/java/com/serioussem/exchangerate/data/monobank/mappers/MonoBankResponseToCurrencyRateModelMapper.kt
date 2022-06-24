@@ -4,21 +4,23 @@ import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.data.core.BaseMapper
 import com.serioussem.exchangerate.data.monobank.model.MonoBankResponse
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
+import com.serioussem.exchangerate.utils.getFiveFirstChars
+
 
 class MonoBankResponseToCurrencyRateModelMapper : BaseMapper<MonoBankResponse, CurrencyRateModel?> {
 
     override fun map(source: MonoBankResponse): CurrencyRateModel {
 
         val responseTargetCurrency = source.targetCurrency
-        val currencyIndex = targetCurrency.indexOf(source.targetCurrency)
-        val rateBuy = source.rateBuy.toString()
-        val rateSell = source.rateSell.toString()
-        val rateCross = source.rateCross.toString()
+        val rateBuy = source.rateBuy.toString().getFiveFirstChars()
+        val rateSell = source.rateSell.toString().getFiveFirstChars()
+        val rateCross = source.rateCross.toString().getFiveFirstChars()
+        val currencyIndex = targetCurrency.indexOf(responseTargetCurrency)
         var currencyRate = CurrencyRateModel(
-            countryFlag = countryFlag.component1(),
-            currencyFullName = currencyFullName.component1(),
-            buyingRate = source.rateBuy.toString(),
-            sellingRate = source.rateSell.toString()
+            countryFlag = countryFlag[6],
+            currencyFullName = currencyFullName[6],
+            buyingRate = rateCross,
+            sellingRate = rateCross
         )
         if (targetCurrency.contains(responseTargetCurrency)) {
             currencyRate = if (currencyIndex in 0..1) {
@@ -50,7 +52,8 @@ class MonoBankResponseToCurrencyRateModelMapper : BaseMapper<MonoBankResponse, C
         R.string.pound_sterling,
         R.string.japanese_yen,
         R.string.swiss_franc,
-        R.string.yuan_renminbi
+        R.string.yuan_renminbi,
+       R.string.any_currency
     )
     private val countryFlag = listOf(
         R.drawable.us,

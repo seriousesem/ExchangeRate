@@ -73,8 +73,9 @@
 
         <ProgressBar
             android:id="@+id/progress_bar"
-            android:layout_width="@dimen/indent_40dp"
-            android:layout_height="@dimen/indent_40dp"
+            android:layout_width="@dimen/indent_60dp"
+            android:layout_height="@dimen/indent_60dp"
+            android:layout_margin="@dimen/indent_60dp"
             android:visibility="visible"
             tools:visibility="visible" />
 

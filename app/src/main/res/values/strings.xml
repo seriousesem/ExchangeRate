@@ -20,6 +20,7 @@
     <string name="japanese_yen">Японська єна</string>
     <string name="swiss_franc">Швейцарський франк</string>
     <string name="yuan_renminbi">Китайський юань</string>
+    <string name="any_currency">якась валюта</string>
     <string name="favorite_border">favorite_border</string>
-    <string name="work_in_progess">work in progess</string>
+    <string name="work_in_progress">work in progress</string>
 </resources>

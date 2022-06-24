@@ -19,7 +19,7 @@ class ResponseHandler(
                 if (response.isSuccessful && body != null) {
                     return CurrencyDataResult.Success(body)
                 }
-                return CurrencyDataResult.Error("Невдалий запрос")
+                return CurrencyDataResult.Error("Невдалий запит, спробуйте через кілька хвилин")
 
             } catch (e: Exception) {
                 return CurrencyDataResult.Error("Інша помилка")

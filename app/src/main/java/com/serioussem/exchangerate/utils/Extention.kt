@@ -15,6 +15,10 @@ fun TextView.updateText(message: Any) {
     text = message.toString()
 }
 
+fun String.getFiveFirstChars() : String =
+    if (this.length > 4) this.substring(0, 5) else this
+
+
 fun View.showSnackBar(message: String, length: Int = Snackbar.LENGTH_SHORT) {
     val snack = Snackbar.make(this, message, length)
     snack.show()

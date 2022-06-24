@@ -2,6 +2,7 @@ package com.serioussem.exchangerate.di
 
 
 import com.serioussem.exchangerate.data.monobank.retrofit.MonoBankService
+import com.serioussem.exchangerate.data.nbu.retrofit.NbuService
 import com.serioussem.exchangerate.data.privatbank.retrofit.PrivatBankService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit
 
 private const val PRIVAT_BANK_URL = "https://api.privatbank.ua/p24api/"
 private const val MONO_BANK_URL = "https://api.monobank.ua/"
+private const val NBU_URL = "https://bank.gov.ua/"
 
 val privatBankRetrofitModule = module {
     single(named("PrivatBankInterceptor")) {
@@ -40,6 +42,20 @@ val monoBankRetrofitModule = module {
     }
     single(named("MonoBankService")) {
         createRetrofitService<MonoBankService>(get(named("MonoBankRetrofit")))
+    }
+}
+val nbuRetrofitModule = module {
+    single(named("NbuInterceptor")) {
+        createLoggingInterceptor()
+    }
+    single(named("NbuClient")) {
+        createOkHttpClient(get(named("NbuInterceptor")))
+    }
+    single(named("NbuRetrofit")) {
+        createRetrofit(NBU_URL, get(named("NbuClient")))
+    }
+    single(named("NbuService")) {
+        createRetrofitService<NbuService>(get(named("NbuRetrofit")))
     }
 }
 

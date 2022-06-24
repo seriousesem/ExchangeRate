@@ -4,6 +4,7 @@ import com.serioussem.exchangerate.R
 import com.serioussem.exchangerate.data.core.BaseMapper
 import com.serioussem.exchangerate.data.privatbank.model.PrivatBankResponse
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
+import com.serioussem.exchangerate.utils.getFiveFirstChars
 
 class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankResponse, CurrencyRateModel> {
 
@@ -13,15 +14,15 @@ class PrivatBankResponseToCurrencyRateModelMapper : BaseMapper<PrivatBankRespons
         var currencyRate = CurrencyRateModel(
             countryFlag = countryFlag.component1(),
             currencyFullName = currencyFullName.component1(),
-            buyingRate = source.buying_rate,
-            sellingRate = source.selling_rate
+            buyingRate = source.buying_rate.getFiveFirstChars(),
+            sellingRate = source.selling_rate.getFiveFirstChars()
         )
         if (targetCurrency.contains(responseTargetCurrency)) {
             currencyRate = CurrencyRateModel(
                 countryFlag = countryFlag[currencyIndex],
                 currencyFullName = currencyFullName[currencyIndex],
-                buyingRate = source.buying_rate.dropLast(3),
-                sellingRate = source.selling_rate.dropLast(3)
+                buyingRate = source.buying_rate.getFiveFirstChars(),
+                sellingRate = source.selling_rate.getFiveFirstChars()
             )
         }
         return currencyRate

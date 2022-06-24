@@ -5,6 +5,7 @@ import com.serioussem.exchangerate.utils.AppDispatchers
 import com.serioussem.exchangerate.presentation.core.adapters.CurrencyRateRecyclerViewAdapter
 import com.serioussem.exchangerate.presentation.core.adapters.CurrencyRateViewHolder
 import com.serioussem.exchangerate.presentation.monobank.MonoBankViewModel
+import com.serioussem.exchangerate.presentation.nbu.NbuViewModel
 import com.serioussem.exchangerate.presentation.privatbank.PrivatBankViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.dsl.factoryOf
@@ -18,6 +19,10 @@ val appModule = module {
 
     viewModel {
         MonoBankViewModel(repository = get(), dispatchers = get(), uiState = get())
+    }
+
+    viewModel {
+        NbuViewModel(repository = get(), dispatchers = get(), uiState = get())
     }
 
     factory {
