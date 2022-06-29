@@ -4,6 +4,8 @@
     <string name="mono_bank">Моно</string>
     <string name="nbu">НБУ</string>
     <string name="favorite">Обрані</string>
+    <string name="favorite_border">favorite_border</string>
+    <string name="work_in_progress">work in progress</string>
     <string name="currency_rate_in_privat_bank">Курс валют в ПриватБанку</string>
     <string name="currency_rate_in_mono_bank">Курс валют в МоноБанку</string>
     <string name="currency_rate_in_nbu">Курс валют в НБУ</string>
@@ -20,7 +22,18 @@
     <string name="japanese_yen">Японська єна</string>
     <string name="swiss_franc">Швейцарський франк</string>
     <string name="yuan_renminbi">Китайський юань</string>
+    <string name="aoe_dih">ОАЕ діхрам</string>
+    <string name="afgani">Афгані</string>
+    <string name="alb_lek">Албанський лек</string>
+    <string name="virm_dram">Вірменський драм</string>
+    <string name="ang_kvan">Ангольський кванза</string>
+    <string name="arg_peso">Аргентинський песо</string>
+    <string name="avstr_dol">Австралійський долар</string>
+    <string name="azer_man">Азербайджанський манат</string>
+    <string name="bang_taka">Бангладешський така</string>
+    <string name="bolg_lev">Болгарський лев</string>
+    <string name="bahr_din">Бахрейнський дінар</string>
+    <string name="burun_fran">Бурундійський франк</string>
     <string name="any_currency">якась валюта</string>
-    <string name="favorite_border">favorite_border</string>
-    <string name="work_in_progress">work in progress</string>
+
 </resources>
