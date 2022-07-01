@@ -5,7 +5,11 @@ import com.serioussem.exchangerate.R
 object Constants {
     val countryFlag = listOf(
         R.drawable.us, R.drawable.eur, R.drawable.gb, R.drawable.jp, R.drawable.ch,
-        R.drawable.cn,R.drawable.ae,
+        R.drawable.cn, R.drawable.ae, R.drawable.af, R.drawable.al, R.drawable.arm,
+        R.drawable.an, R.drawable.ar, R.drawable.au, R.drawable.az, R.drawable.bd,
+        R.drawable.bg, R.drawable.bh, R.drawable.bi, R.drawable.bn, R.drawable.bo,
+        R.drawable.br, R.drawable.bw, R.drawable.by, R.drawable.ca, R.drawable.cg,
+
         R.drawable.noting
     )
     val currencyFullName = listOf(
