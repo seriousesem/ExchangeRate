@@ -44,7 +44,7 @@
     <string name="chili_peso">Чилійский песо</string>
     <string name="kolumb_peso">Колумбійський песо</string>
     <string name="kosta_rik_kol">Коста Ріканський колон</string>
-    <string name="kuba_peso">Кубанський песо</string>
+    <string name="kuba_peso">Песо Куби</string>
     <string name="cheh_krona">Чеська крона</string>
     <string name="frank_jibut">Франк Джибуті</string>
     <string name="dania_krona">Данська крона</string>
@@ -78,14 +78,14 @@
     <string name="livia_dinar">Лівійський дінар</string>
     <string name="marokko_dichram">Марокканський діхрам</string>
     <string name="moldova_lei">Молдовський лей</string>
-    <string name="madagaskar_ariari">Малагаський аріарі</string>
+    <string name="madagaskar_ariari">Аріарі Мадагаскар</string>
     <string name="makedon_denar">Македонський денар</string>
     <string name="mongol_tugrik">Монгольский тугрик</string>
     <string name="mavritan_ugia">Мавританськая угія</string>
     <string name="mavrikia_rupia">Маврикійська рупія</string>
     <string name="malavia_kvacha">Малавійська квача</string>
     <string name="mexico_peso">Мексиканський песо</string>
-    <string name="malazia_ringit">Малазійський рінггіт</string>
+    <string name="malazia_ringit">Малайзійський рингіт</string>
     <string name="mozambik_montikal">Мозамбікський монтікал</string>
     <string name="namibia_dolar">Намібійський долар</string>
     <string name="nigeria_naira">Нігерійська наіра</string>
@@ -102,7 +102,7 @@
     <string name="katar_real">Катарський реал</string>
     <string name="rumunia_lei">Румунський лей</string>
     <string name="serbia_dinar">Сербський дінар</string>
-    <string name="saudia_real">Саудивський реал</string>
+    <string name="saudia_real">Саудівський реал</string>
     <string name="seishel_rupia">Сейшельська рупія</string>
     <string name="sudan_funt">Суданський фунт</string>
     <string name="swed_krona">Шведська крона</string>

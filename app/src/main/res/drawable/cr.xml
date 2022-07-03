@@ -4,15 +4,15 @@
     android:viewportWidth="640"
     android:viewportHeight="480">
   <path
-      android:pathData="M0,320h640v160H0z"
-      android:fillColor="#d62612"
+      android:pathData="M0,0h640v480H0z"
+      android:fillColor="#0000b4"
       android:fillType="evenOdd"/>
   <path
-      android:pathData="M0,0h640v160H0z"
+      android:pathData="M0,75.4h640v322.3H0z"
       android:fillColor="#fff"
       android:fillType="evenOdd"/>
   <path
-      android:pathData="M0,160h640v160H0z"
-      android:fillColor="#00966e"
+      android:pathData="M0,157.7h640v157.7H0z"
+      android:fillColor="#d90000"
       android:fillType="evenOdd"/>
 </vector>
