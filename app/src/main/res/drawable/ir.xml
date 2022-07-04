@@ -72,7 +72,7 @@
         android:fillType="evenOdd"/>
     <path
         android:pathData="M134.66,329.06l45.94,0l0,3.09l-45.94,0zM141.5,344.81L144.69,344.81l0,3.09l-3.19,0zM180.78,344.81l0,3.09l-9.19,0l0,-3.19zM185.75,329.06l3.19,0l0,18.75l-3.19,0z"
-        ndroid:fillColor="#fff"
+        android:fillColor="#fff"
         android:fillType="evenOdd"/>
     <path
         android:pathData="M204.03,344.72l0,3.19l-17.44,0l0,-3.19zM171.59,337.31l3.19,0l0,10.59l-3.19,0z"
@@ -144,7 +144,7 @@
         android:fillType="evenOdd"/>
     <path
         android:pathData="M246.97,337.41l3.19,0L250.16,347.81l-3.19,0z"
-        ndroid:fillColor="#fff"
+        android:fillColor="#fff"
         android:fillType="evenOdd"/>
     <path
         android:pathData="M246.97,337.41l3.19,0L250.16,347.81l-3.19,0zM210.13,337.41l3.19,0L213.31,347.81l-3.19,0zM237.13,337.41l3.19,0L240.31,347.81l-3.19,0zM223.81,337.41l3.09,0L226.91,347.81l-3.09,0z"
