@@ -22,7 +22,7 @@
     <string name="japanese_yen">Японська єна</string>
     <string name="swiss_franc">Швейцарський франк</string>
     <string name="yuan_renminbi">Китайський юань</string>
-    <string name="aoe_dih">ОАЕ діхрам</string>
+    <string name="aoe_dih">Дихрам ОАЕ</string>
     <string name="afgani">Афганський афгані</string>
     <string name="alb_lek">Албанський лек</string>
     <string name="virm_dram">Вірменський драм</string>
@@ -129,6 +129,14 @@
     <string name="emen_real">Єменський реал</string>
     <string name="lesotto_rand">Ранд Лесотто</string>
     <string name="zambia_kvacha">Замбійська квача</string>
+    <string name="rus_rub">Російський рубль</string>
+    <string name="spz">СПЗ(спеціальні права запозичення)</string>
+    <string name="dominikana_peso">Домініканське песо</string>
+    <string name="turkmen_new_manat">Туркменський новий манат</string>
+    <string name="gold">Золото</string>
+    <string name="silver">Срібло</string>
+    <string name="platina">Платина</string>
+    <string name="paladij">Паладій</string>
     <string name="any_currency">якась валюта</string>
 
 </resources>

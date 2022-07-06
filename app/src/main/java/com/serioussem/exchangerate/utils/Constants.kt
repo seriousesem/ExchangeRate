@@ -26,7 +26,9 @@ object Constants {
         R.drawable.sz, R.drawable.th, R.drawable.tj, R.drawable.tm, R.drawable.tn,
         R.drawable.tr, R.drawable.tw, R.drawable.tz, R.drawable.ug, R.drawable.uy,
         R.drawable.uz, R.drawable.ven, R.drawable.vn, R.drawable.cm, R.drawable.cm,
-        R.drawable.ye, R.drawable.ls, R.drawable.zm, R.drawable.noting
+        R.drawable.ye, R.drawable.ls, R.drawable.zm, R.drawable.ru, R.drawable.noting,
+        R.drawable.dom, R.drawable.tm, R.drawable.noting, R.drawable.noting,
+        R.drawable.noting, R.drawable.noting, R.drawable.noting
     )
     val currencyFullName = listOf(
         R.string.dollar_usa,
@@ -142,6 +144,14 @@ object Constants {
         R.string.emen_real,
         R.string.lesotto_rand,
         R.string.zambia_kvacha,
+        R.string.rus_rub,
+        R.string.spz,
+        R.string.dominikana_peso,
+        R.string.turkmen_new_manat,
+        R.string.gold,
+        R.string.silver,
+        R.string.platina,
+        R.string.paladij,
         R.string.any_currency
     )
 
@@ -155,7 +165,8 @@ object Constants {
             454, 484, 458, 943, 516, 566, 558, 578, 524, 554, 512, 604, 608,
             586, 985, 600, 634, 946, 941, 682, 690, 938, 752, 702, 694, 706,
             968, 760, 748, 764, 972, 795, 788, 949, 901, 834, 800, 858, 860,
-            937, 704, 950, 952, 886, 710, 894
+            937, 704, 950, 952, 886, 710, 894, 643, 960, 214, 934, 959, 961,
+            964
         )
 
 }

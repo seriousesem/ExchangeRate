@@ -15,8 +15,8 @@ class NbuResponseToCurrencyRateModelMapper: BaseMapper<NbuResponse, CurrencyRate
         val responseRate = source.rate.toString().getFiveFirstChars()
         val currencyIndex = currencyCode.indexOf(source.currencyCode)
         var currencyRate = CurrencyRateModel(
-            countryFlag = countryFlag[6],
-            currencyFullName = currencyFullName[6],
+            countryFlag = countryFlag.last(),
+            currencyFullName = currencyFullName.last(),
             buyingRate = responseRate,
             sellingRate = responseRate
         )
