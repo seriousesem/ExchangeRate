@@ -13,7 +13,6 @@ class HomeBankFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::
     companion object {
         private const val ALPHA_MAX = 250
         private const val ALPHA_MIN = 70
-
     }
 
     override fun init() {
@@ -21,7 +20,7 @@ class HomeBankFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::
     }
 
     private fun initViewPager() {
-        with(binding){
+        with(binding) {
             viewPager.adapter =
                 ViewPagerAdapter(fragmentManager = parentFragmentManager, lifecycle = lifecycle)
             tabLayout.tabIconTint = null
@@ -48,13 +47,6 @@ class HomeBankFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::
                             icon?.alpha = ALPHA_MIN
                         }
                     }
-                    3 -> {
-                        with(tab) {
-
-                            setIcon(R.drawable.favorites_icon)
-                            icon?.alpha = ALPHA_MIN
-                        }
-                    }
                 }
             }.attach()
 
@@ -62,9 +54,11 @@ class HomeBankFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     tab.icon?.alpha = ALPHA_MAX
                 }
+
                 override fun onTabUnselected(tab: TabLayout.Tab) {
                     tab.icon?.alpha = ALPHA_MIN
                 }
+
                 override fun onTabReselected(tab: TabLayout.Tab?) {}
             })
         }

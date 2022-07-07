@@ -9,7 +9,7 @@ import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 class MonoBankDataResultToDomainMapper(private var mapper: MonoBankResponseToCurrencyRateModelMapper) :
     BaseMapper<CurrencyDataResult<List<MonoBankResponse>>, CurrencyDomainResult<List<CurrencyRateModel>>> {
 
-    private val usdCode = 840    
+    private val usdCode = 840
 
     override fun map(source: CurrencyDataResult<List<MonoBankResponse>>):
             CurrencyDomainResult<List<CurrencyRateModel>> =

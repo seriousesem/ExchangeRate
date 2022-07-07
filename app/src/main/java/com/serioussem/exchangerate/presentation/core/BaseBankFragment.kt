@@ -40,5 +40,6 @@ abstract class BaseBankFragment : BaseFragment<BankFragmentBinding>(BankFragment
             }
         }
     }
+
     abstract fun updateTitle(): String
 }

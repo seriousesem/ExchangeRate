@@ -10,7 +10,6 @@ class InternetConnection(
     private val context: Context
 ) {
     fun isConnected(): Boolean {
-
         var result = false
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

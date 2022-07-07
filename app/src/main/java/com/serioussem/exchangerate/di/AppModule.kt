@@ -16,15 +16,12 @@ val appModule = module {
     viewModel {
         PrivatBankViewModel(repository = get(), dispatchers = get(), uiState = get())
     }
-
     viewModel {
         MonoBankViewModel(repository = get(), dispatchers = get(), uiState = get())
     }
-
     viewModel {
         NbuViewModel(repository = get(), dispatchers = get(), uiState = get())
     }
-
     factory {
         AppDispatchers()
     }
@@ -40,5 +37,4 @@ val appModule = module {
     factory {
         ResourceProvider(context = get())
     }
-
 }

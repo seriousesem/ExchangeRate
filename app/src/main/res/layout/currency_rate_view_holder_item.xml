@@ -56,17 +56,6 @@
             android:gravity="center"
             tools:text="@string/sale" />
 
-        <ImageView
-            android:id="@+id/favorite"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/indent_4dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/favorite_border"
-            android:src="@drawable/favorite_border"
-            tools:ignore="ImageContrastCheck" />
-
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

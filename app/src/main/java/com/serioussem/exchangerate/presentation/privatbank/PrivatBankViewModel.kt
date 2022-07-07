@@ -7,7 +7,6 @@ import com.serioussem.exchangerate.utils.AppDispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-
 class PrivatBankViewModel(
     repository: PrivatBankRepository,
     dispatchers: AppDispatchers,

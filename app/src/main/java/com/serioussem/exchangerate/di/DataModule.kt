@@ -40,7 +40,7 @@ val dataModule = module {
     }
 
     factory {
-        ResponseHandler(internetConnection = get(), provider = get())
+        ResponseHandler(internetConnection = get(), resourceProvider = get())
     }
 
     factory {
@@ -81,6 +81,5 @@ val dataModule = module {
     factory {
         NbuDataResultToDomainMapper(mapper = get())
     }
-
 }
 

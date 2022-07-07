@@ -12,7 +12,7 @@ class MonoBankRepositoryImpl(
     private val dataSource: MonoBankDataSource,
     private val mapper: MonoBankDataResultToDomainMapper,
     private val dispatcher: CoroutineDispatcher
-): MonoBankRepository {
+) : MonoBankRepository {
     override suspend fun fetchCurrencyRate(): Flow<CurrencyDomainResult<List<CurrencyRateModel>>> =
         flow {
             emit(mapper.map(source = dataSource.fetchCurrencyRate()))

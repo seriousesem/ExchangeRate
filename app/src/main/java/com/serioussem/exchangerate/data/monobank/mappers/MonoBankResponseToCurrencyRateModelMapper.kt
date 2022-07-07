@@ -8,7 +8,6 @@ import com.serioussem.exchangerate.utils.Constants.currencyCode
 import com.serioussem.exchangerate.utils.Constants.currencyFullName
 import com.serioussem.exchangerate.utils.getFiveFirstChars
 
-
 class MonoBankResponseToCurrencyRateModelMapper : BaseMapper<MonoBankResponse, CurrencyRateModel?> {
 
     override fun map(source: MonoBankResponse): CurrencyRateModel {

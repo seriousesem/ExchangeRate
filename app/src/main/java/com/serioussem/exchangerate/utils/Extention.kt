@@ -11,13 +11,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-fun TextView.updateText(message: Any) {
-    text = message.toString()
-}
-
-fun String.getFiveFirstChars() : String =
+fun String.getFiveFirstChars(): String =
     if (this.length > 4) this.substring(0, 5) else this
-
 
 fun View.showSnackBar(message: String, length: Int = Snackbar.LENGTH_SHORT) {
     val snack = Snackbar.make(this, message, length)

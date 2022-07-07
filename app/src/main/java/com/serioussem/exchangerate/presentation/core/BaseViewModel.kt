@@ -35,6 +35,6 @@ abstract class BaseViewModel(
         }
     }
 
-    open fun fetchCurrencyRate(){}
+    open fun fetchCurrencyRate() {}
 
 }

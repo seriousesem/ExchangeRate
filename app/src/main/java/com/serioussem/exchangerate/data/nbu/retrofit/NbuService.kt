@@ -7,9 +7,9 @@ import retrofit2.http.GET
 interface NbuService {
 
     companion object {
-        private const val NBU_ENDPOINT = "NBUStatService/v1/statdirectory/exchange?json"
+        private const val NBU_END_POINT = "NBUStatService/v1/statdirectory/exchange?json"
     }
 
-    @GET(NBU_ENDPOINT)
+    @GET(NBU_END_POINT)
     suspend fun fetch(): Response<List<NbuResponse>>
 }

@@ -7,9 +7,9 @@ import retrofit2.http.GET
 interface MonoBankService {
 
     companion object {
-        private const val MONO_BANK_ENDPOINT = "bank/currency"
+        private const val MONO_BANK_END_POINT = "bank/currency"
     }
 
-    @GET(MONO_BANK_ENDPOINT)
+    @GET(MONO_BANK_END_POINT)
     suspend fun fetch(): Response<List<MonoBankResponse>>
 }

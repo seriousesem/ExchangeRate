@@ -19,6 +19,7 @@ class NbuViewModel(
     init {
         fetchCurrencyRate()
     }
+
     override fun fetchCurrencyRate() {
         super.fetch(mutableNbuResult)
     }
