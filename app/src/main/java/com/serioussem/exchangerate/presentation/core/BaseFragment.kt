@@ -33,10 +33,8 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) 
         bindingMutable = null
     }
 
-    open fun collectFlow() {}
+    open fun collectFlow() {
 
-    open fun updatePageTitle() {}
-
+    }
     abstract fun init()
-
 }

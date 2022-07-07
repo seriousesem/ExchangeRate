@@ -12,7 +12,7 @@ data class UiState(
     private val currencyRateList: List<CurrencyRateModel> = listOf(),
     private val errorMessage: String? = null
 ) {
-    fun update(binding: BankFragmentBinding, adapter: CurrencyRateRecyclerViewAdapter) {
+    fun updateUi(binding: BankFragmentBinding, adapter: CurrencyRateRecyclerViewAdapter) {
         if (loading) {
             binding.currencyRateRecyclerView.hideView()
             binding.progressBar.showView()

@@ -14,6 +14,10 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
         CurrencyRateRecyclerViewAdapter()
     }
 
+    companion object {
+        const val title = R.string.currency_rate_in_privat_bank
+    }
+
     override fun init() {
         swipeRefresh()
         initView()
@@ -25,14 +29,14 @@ class PrivatBankFragment : BaseFragment<BankFragmentBinding>(BankFragmentBinding
                 setHasFixedSize(true)
                 adapter = currencyAdapter
             }
-            pageTitle.text = getString(R.string.currency_rate_in_privat_bank)
+            pageTitle.text = getString(title)
         }
 
     }
 
     override fun collectFlow() {
-        collectFlow(viewModel.uiState) {
-            it.update(binding = binding, adapter = currencyAdapter)
+        collectFlow(viewModel.result) {
+            it.updateUi(binding = binding, adapter = currencyAdapter)
         }
     }
 

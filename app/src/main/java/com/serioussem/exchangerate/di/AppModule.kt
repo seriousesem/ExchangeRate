@@ -8,7 +8,6 @@ import com.serioussem.exchangerate.presentation.monobank.MonoBankViewModel
 import com.serioussem.exchangerate.presentation.nbu.NbuViewModel
 import com.serioussem.exchangerate.presentation.privatbank.PrivatBankViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
 val appModule = module {
