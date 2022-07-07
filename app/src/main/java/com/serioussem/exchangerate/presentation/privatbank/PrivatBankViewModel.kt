@@ -14,15 +14,15 @@ class PrivatBankViewModel(
     uiState: UiState
 ) : BaseViewModel(repository = repository, dispatchers = dispatchers) {
 
-    private var mutableResult = MutableStateFlow(uiState)
-    val result = mutableResult.asStateFlow()
+    private var mutablePrivatBankResult = MutableStateFlow(uiState)
+    val privatBankResult = mutablePrivatBankResult.asStateFlow()
 
     init {
         fetchCurrencyRate()
     }
 
-    fun fetchCurrencyRate() {
-        super.fetch(mutableResult)
+    override fun fetchCurrencyRate() {
+        super.fetch(mutablePrivatBankResult)
     }
 
 }

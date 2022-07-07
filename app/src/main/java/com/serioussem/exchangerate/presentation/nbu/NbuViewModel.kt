@@ -13,14 +13,13 @@ class NbuViewModel(
     uiState: UiState
 ) : BaseViewModel(repository = repository, dispatchers = dispatchers) {
 
-    private var mutableResult = MutableStateFlow(uiState)
-    val result = mutableResult.asStateFlow()
+    private var mutableNbuResult = MutableStateFlow(uiState)
+    val nbuResult = mutableNbuResult.asStateFlow()
 
     init {
         fetchCurrencyRate()
     }
-
-    fun fetchCurrencyRate() {
-        super.fetch(mutableResult)
+    override fun fetchCurrencyRate() {
+        super.fetch(mutableNbuResult)
     }
 }

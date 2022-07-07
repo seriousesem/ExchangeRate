@@ -13,14 +13,14 @@ class MonoBankViewModel(
     uiState: UiState
 ) : BaseViewModel(repository = repository, dispatchers = dispatchers) {
 
-    private var mutableResult = MutableStateFlow(uiState)
-    val result = mutableResult.asStateFlow()
+    private var mutableMonoBankResult = MutableStateFlow(uiState)
+    val monoBankResult = mutableMonoBankResult.asStateFlow()
 
     init {
         fetchCurrencyRate()
     }
 
-    fun fetchCurrencyRate() {
-        super.fetch(mutableResult)
+    override fun fetchCurrencyRate() {
+        super.fetch(mutableMonoBankResult)
     }
 }

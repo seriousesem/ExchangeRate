@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 
-open class BaseViewModel(
+abstract class BaseViewModel(
     private val repository: BaseRepository<CurrencyDomainResult<List<CurrencyRateModel>>>,
     private val dispatchers: AppDispatchers
 ) : ViewModel() {
@@ -33,4 +33,6 @@ open class BaseViewModel(
             }
         }
     }
+
+    open fun fetchCurrencyRate(){}
 }
