@@ -4,20 +4,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.serioussem.exchangerate.presentation.favorites.FavoritesFragment
-import com.serioussem.exchangerate.presentation.monobank.MonoBankFragment
-import com.serioussem.exchangerate.presentation.nbu.NbuFragment
-import com.serioussem.exchangerate.presentation.privatbank.PrivatBankFragment
+import com.serioussem.exchangerate.presentation.favorites.FavoritesBankFragment
+import com.serioussem.exchangerate.presentation.monobank.MonoBankBankFragment
+import com.serioussem.exchangerate.presentation.nbu.NbuBankFragment
+import com.serioussem.exchangerate.presentation.privatbank.PrivatBankBankFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val fragmentList =
         listOf<Fragment>(
-            NbuFragment(),
-            PrivatBankFragment(),
-            MonoBankFragment(),
-            FavoritesFragment()
+            NbuBankFragment(),
+            PrivatBankBankFragment(),
+            MonoBankBankFragment(),
+            FavoritesBankFragment()
         )
 
     override fun getItemCount(): Int = fragmentList.size

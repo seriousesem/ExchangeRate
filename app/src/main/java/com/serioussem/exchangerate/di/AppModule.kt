@@ -7,6 +7,7 @@ import com.serioussem.exchangerate.presentation.core.adapters.CurrencyRateViewHo
 import com.serioussem.exchangerate.presentation.monobank.MonoBankViewModel
 import com.serioussem.exchangerate.presentation.nbu.NbuViewModel
 import com.serioussem.exchangerate.presentation.privatbank.PrivatBankViewModel
+import com.serioussem.exchangerate.utils.ResourceProvider
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -34,7 +35,10 @@ val appModule = module {
         CurrencyRateRecyclerViewAdapter()
     }
     single {
-        CurrencyRateViewHolder(get())
+        CurrencyRateViewHolder(binding = get())
+    }
+    factory {
+        ResourceProvider(context = get())
     }
 
 }

@@ -2,7 +2,6 @@ package com.serioussem.exchangerate.di
 
 import com.serioussem.exchangerate.data.core.InternetConnection
 import com.serioussem.exchangerate.data.core.ResponseHandler
-import com.serioussem.exchangerate.data.core.ResourceProvider
 import com.serioussem.exchangerate.data.monobank.datasource.MonoBankDataSource
 import com.serioussem.exchangerate.data.monobank.mappers.MonoBankDataResultToDomainMapper
 import com.serioussem.exchangerate.data.monobank.mappers.MonoBankResponseToCurrencyRateModelMapper
@@ -46,10 +45,6 @@ val dataModule = module {
 
     factory {
         InternetConnection(context = get())
-    }
-
-    factory {
-        ResourceProvider(context = get())
     }
 
     factory {

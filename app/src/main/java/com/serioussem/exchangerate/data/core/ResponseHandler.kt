@@ -1,7 +1,7 @@
 package com.serioussem.exchangerate.data.core
 
-import android.util.Log
-import com.serioussem.exchangerate.domain.core.CurrencyRateModel
+
+import com.serioussem.exchangerate.utils.ResourceProvider
 import retrofit2.Response
 
 class ResponseHandler(

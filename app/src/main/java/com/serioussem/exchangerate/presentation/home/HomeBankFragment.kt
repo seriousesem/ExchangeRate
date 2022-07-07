@@ -8,7 +8,7 @@ import com.serioussem.exchangerate.presentation.core.BaseFragment
 import com.serioussem.exchangerate.presentation.core.adapters.ViewPagerAdapter
 
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
+class HomeBankFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
 
     companion object {
         private const val ALPHA_MAX = 250

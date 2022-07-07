@@ -6,6 +6,7 @@ import com.serioussem.exchangerate.domain.core.BaseRepository
 import com.serioussem.exchangerate.domain.core.CurrencyDomainResult
 import com.serioussem.exchangerate.domain.core.CurrencyRateModel
 import com.serioussem.exchangerate.utils.AppDispatchers
+import com.serioussem.exchangerate.utils.ResourceProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
@@ -35,4 +36,5 @@ abstract class BaseViewModel(
     }
 
     open fun fetchCurrencyRate(){}
+
 }
