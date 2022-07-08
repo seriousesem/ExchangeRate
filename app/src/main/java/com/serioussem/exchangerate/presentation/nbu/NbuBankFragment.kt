@@ -17,9 +17,9 @@ class NbuBankFragment : BaseBankFragment() {
     }
 
     override fun init() {
-        super.swipeRefresh(viewModel)
         super.collectFlow(currencyAdapter, viewModel.nbuResult)
         super.initView(currencyAdapter)
+        super.swipeRefresh(viewModel)
     }
 
     override fun updateTitle(): String = getString(title)

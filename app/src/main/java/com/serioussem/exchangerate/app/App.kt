@@ -18,7 +18,6 @@ class App : Application() {
                 listOf(
                     appModule,
                     dataModule,
-                    domainModule,
                     privatBankRetrofitModule,
                     monoBankRetrofitModule,
                     nbuRetrofitModule

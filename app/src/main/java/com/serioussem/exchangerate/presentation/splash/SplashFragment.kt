@@ -1,19 +1,47 @@
 package com.serioussem.exchangerate.presentation.splash
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.serioussem.exchangerate.R
+import com.serioussem.exchangerate.databinding.SplashFragmentBinding
+import com.serioussem.exchangerate.presentation.core.BaseFragment
+import com.serioussem.exchangerate.utils.playAllSets
 
-class SplashFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.splash_fragment, container, false)
+class SplashFragment : BaseFragment<SplashFragmentBinding>(SplashFragmentBinding::inflate) {
+
+    private var listAnimatorSet = mutableListOf<AnimatorSet>()
+
+    companion object {
+        private const val DURATION_1 = 2500L
     }
+    override fun init() {
+        initAnimators()
+        initAnimations()
+    }
+    private fun initAnimations() {
+        listAnimatorSet.playAllSets(lifecycleScope) {
+            this.findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        }
+
+    }
+    private fun initAnimators() {
+        val alphaLogoTxt = ObjectAnimator.ofFloat(binding.logoTxt, View.ALPHA, 0f, 1f)
+        val alphaNbuLogo = ObjectAnimator.ofFloat(binding.nbuLogo, View.ALPHA, 0f, 1f)
+        val translationPrivatLogo =
+            ObjectAnimator.ofFloat(binding.privatLogo, View.TRANSLATION_X, -600f, 1f)
+        val translationMonoLogo =
+            ObjectAnimator.ofFloat(binding.monoLogo, View.TRANSLATION_X, 600f, 1f)
+
+        val animatorSet1 = AnimatorSet().apply {
+            duration = DURATION_1
+            playTogether(alphaLogoTxt, alphaNbuLogo, translationPrivatLogo, translationMonoLogo)
+        }
+        listAnimatorSet.add(animatorSet1)
+
+    }
+
 }

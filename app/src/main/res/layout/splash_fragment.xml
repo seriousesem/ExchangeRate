@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.splash.SplashFragment">
+    tools:context=".presentation.splash.SplashFragment" >
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <TextView
+        android:id="@+id/logo_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@android:drawable/btn_star_big_on" />
-</FrameLayout>
+        android:layout_marginBottom="48dp"
+        android:textAllCaps="false"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/privat_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/app_name" />
+
+    <ImageView
+        android:id="@+id/privat_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/privat_splash"
+        app:layout_constraintStart_toStartOf="@+id/logo_txt"
+        app:layout_constraintTop_toTopOf="@+id/nbu_logo"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/privat_bank" />
+
+    <ImageView
+        android:id="@+id/mono_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/monobank_splash"
+        app:layout_constraintEnd_toEndOf="@+id/logo_txt"
+        app:layout_constraintTop_toTopOf="@+id/privat_logo"
+        android:contentDescription="@string/mono_bank" />
+
+    <ImageView
+        android:id="@+id/nbu_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        android:src="@drawable/nbu_splash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mono_logo"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/privat_logo"
+        android:contentDescription="@string/nbu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
