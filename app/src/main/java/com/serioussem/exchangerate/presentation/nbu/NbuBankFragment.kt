@@ -8,6 +8,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class NbuBankFragment : BaseBankFragment() {
 
     private val viewModel by viewModel<NbuViewModel>()
+
     private val currencyAdapter by lazy {
         CurrencyRateRecyclerViewAdapter()
     }
@@ -23,4 +24,6 @@ class NbuBankFragment : BaseBankFragment() {
     }
 
     override fun updateTitle(): String = getString(title)
+
+
 }

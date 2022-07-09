@@ -12,7 +12,7 @@ class NbuRepositoryImpl(
     private val dataSource: NbuDataSource,
     private val mapper: NbuDataResultToDomainMapper,
     private val dispatcher: CoroutineDispatcher
-): NbuRepository {
+) : NbuRepository {
     override suspend fun fetchCurrencyRate(): Flow<CurrencyDomainResult<List<CurrencyRateModel>>> =
         flow {
             emit(mapper.map(source = dataSource.fetchCurrencyRate()))
