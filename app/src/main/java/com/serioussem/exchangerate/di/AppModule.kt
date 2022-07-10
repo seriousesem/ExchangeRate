@@ -22,6 +22,7 @@ val appModule = module {
     viewModel {
         NbuViewModel(repository = get(), dispatchers = get(), uiState = get())
     }
+
     factory {
         AppDispatchers()
     }

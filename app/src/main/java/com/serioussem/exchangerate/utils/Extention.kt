@@ -1,5 +1,7 @@
 package com.serioussem.exchangerate.utils
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.view.View
 import android.view.animation.AnimationSet
@@ -49,5 +51,16 @@ fun List<AnimatorSet>.playAllSets(coroutineScope: CoroutineScope, end: () -> Uni
             delay(animSet.duration)
         }
         end.invoke()
+    }
+}
+fun AnimatorSet.playSingleSet(end : () -> Unit) {
+    apply {
+        start()
+        addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator?) {
+                super.onAnimationEnd(animation)
+                end.invoke()
+            }
+        })
     }
 }
